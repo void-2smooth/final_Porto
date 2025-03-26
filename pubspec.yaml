@@ -22,10 +22,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/videos/HEY.mp4
-    - assets/images/HEY.png
     - assets/images/VOID.png
-    - assets/images/Mobileappdeveloper.png
     - assets/images/1728437402614.jpg
     - assets/images/logos/css.png
     - assets/images/logos/dart.png
