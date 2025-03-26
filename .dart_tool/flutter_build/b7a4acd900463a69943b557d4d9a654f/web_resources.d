@@ -1,0 +1,1 @@
+ build\\web\\favicon.ico build\\web\\manifest.json:  C:\\Users\\james\\final_Porto-1\\web\\favicon.ico C:\\Users\\james\\final_Porto-1\\web\\index.html C:\\Users\\james\\final_Porto-1\\web\\manifest.json
