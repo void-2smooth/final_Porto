@@ -10,8 +10,18 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      title: 'My Portfolio',
+      theme: ThemeData(
+        primarySwatch: Colors.blue, // You can customize the theme here
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      debugShowCheckedModeBanner: false, // Disable the debug banner
+      routes: {
+        '/': (context) => const HomePage(),
+        // Add more routes here as your app grows
+      },
+      initialRoute: '/',
     );
   }
 }

@@ -12,7 +12,7 @@ class CustomAppbar extends StatelessWidget {
     required this.onMyStoryPressed,
     required this.onProjectsPressed,
     required this.onSkillsPressed,
-    required this.onContactPressed,
+    required this.onContactPressed, required Color backgroundColor,
   });
 
   @override
