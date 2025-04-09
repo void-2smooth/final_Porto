@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:html' as html;
+import 'dart:html' as html; //Todo:Find another package
 
 class ProjectsCard extends StatelessWidget {
   final String title;
@@ -46,7 +46,6 @@ class ProjectsCard extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Status Circle Indicator
                     Container(
                       width: 20,
                       height: 20,
@@ -71,11 +70,7 @@ class ProjectsCard extends StatelessWidget {
                 const SizedBox(height: 12),
                 Text(
                   description,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.black87,
-                    height: 1.5,
-                  ),
+                  style: const TextStyle(fontSize: 16, height: 1.5),
                 ),
                 const SizedBox(height: 16),
                 Align(

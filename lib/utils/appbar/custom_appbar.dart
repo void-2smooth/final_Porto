@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portifolio/utils/buttons/custom_button.dart';
+import 'package:portifolio/utils/light_dark_mode.dart/light_dark_mode.dart';
 
 class CustomAppbar extends StatelessWidget {
   final VoidCallback onMyStoryPressed;
@@ -12,7 +14,8 @@ class CustomAppbar extends StatelessWidget {
     required this.onMyStoryPressed,
     required this.onProjectsPressed,
     required this.onSkillsPressed,
-    required this.onContactPressed, required Color backgroundColor,
+    required this.onContactPressed,
+    required Color backgroundColor,
   });
 
   @override
@@ -25,21 +28,35 @@ class CustomAppbar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Image(
-              image: AssetImage("assets/images/VOID.png"),
-              height: 150,
-              width: 150,
-              fit: BoxFit.contain,
-            ),
+            Text("VOID </>", style: GoogleFonts.happyMonkey(fontSize: 32)),
             Row(
               children: [
-                Custombutton(name: "My story", icon: Icons.route, onPressed: onMyStoryPressed),
+                CustomButton(
+                  name: "My story",
+                  icon: Icons.route,
+                  onPressed: onMyStoryPressed,
+                ),
                 const SizedBox(width: 10),
-                Custombutton(name: "Projects", icon: Icons.folder, onPressed: onProjectsPressed),
+
+                CustomButton(
+                  name: "Skills",
+                  icon: Icons.kitesurfing_rounded,
+                  onPressed: onSkillsPressed,
+                ),
                 const SizedBox(width: 10),
-                Custombutton(name: "Skills", icon: Icons.kitesurfing_rounded, onPressed: onSkillsPressed),
+                CustomButton(
+                  name: "Projects",
+                  icon: Icons.folder,
+                  onPressed: onProjectsPressed,
+                ),
                 const SizedBox(width: 10),
-                Custombutton(name: "Contact", icon: Icons.contact_emergency_sharp, onPressed: onContactPressed),
+                CustomButton(
+                  name: "Contact",
+                  icon: Icons.contact_emergency_sharp,
+                  onPressed: onContactPressed,
+                ),
+                SizedBox(width: 10),
+                LightDarkModeButton(),
               ],
             ),
           ],

@@ -4,7 +4,7 @@ import 'package:portifolio/utils/footer/footer.dart';
 import 'package:portifolio/utils/headline/headline.dart';
 import 'package:portifolio/utils/projects/projects.dart';
 import 'package:portifolio/utils/skills/skills.dart';
-import 'package:portifolio/utils/contacts/contacts.dart'; // Import the Contacts widget
+import 'package:portifolio/utils/contacts/contacts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +16,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
 
-  // Create keys for each section
   final List<GlobalKey> sectionKeys = [
     GlobalKey(), // Headline
     GlobalKey(), // Skills
@@ -36,33 +35,32 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(100), // Fixed height for the AppBar (100px)
+        preferredSize: const Size.fromHeight(100),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            // Switch between a CustomAppBar and Drawer based on screen size
             if (constraints.maxWidth > 1400) {
               return CustomAppbar(
                 onMyStoryPressed: () => scrollToSection(0),
                 onProjectsPressed: () => scrollToSection(2),
                 onSkillsPressed: () => scrollToSection(1),
                 onContactPressed: () => scrollToSection(3),
-                backgroundColor: Colors.transparent, // Set transparent background for CustomAppBar
+                backgroundColor: Colors.transparent,
               );
             } else {
               return AppBar(
                 leading: Builder(
-                  builder: (context) => IconButton(
-                    icon: const Icon(Icons.menu),
-                    onPressed: () {
-                      // Open the drawer when on mobile or smaller screen sizes
-                      Scaffold.of(context).openDrawer();
-                    },
-                  ),
+                  builder:
+                      (context) => IconButton(
+                        icon: const Icon(Icons.menu),
+                        onPressed: () {
+                          Scaffold.of(context).openDrawer();
+                        },
+                      ),
                 ),
-                elevation: 0, // Remove shadow for a cleaner look
-                backgroundColor: Colors.transparent, // Set transparent background for mobile AppBar
+                elevation: 0,
+                backgroundColor: Colors.transparent,
               );
             }
           },
@@ -70,7 +68,6 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: LayoutBuilder(
         builder: (context, constraints) {
-          // Only show the drawer on small screens (width < 600)
           if (constraints.maxWidth <= 600) {
             return Drawer(
               child: ListView(
@@ -111,7 +108,7 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           } else {
-            return const SizedBox(); // Empty if screen width is large enough
+            return const SizedBox();
           }
         },
       ),
@@ -119,30 +116,15 @@ class _HomePageState extends State<HomePage> {
         controller: _scrollController,
         child: Column(
           children: [
-            const Divider(
-              height: 60, // Adjusted divider height to ensure proper spacing
-              color: Colors.transparent,
-            ),
+            const Divider(height: 60, color: Colors.transparent),
             KeyedSubtree(key: sectionKeys[0], child: const Headline()),
-            const Divider(
-              height: 60, // Adjusted divider height
-              color: Colors.transparent,
-            ),
+            const Divider(height: 60, color: Colors.transparent),
             KeyedSubtree(key: sectionKeys[1], child: const Skills()),
-            const Divider(
-              height: 60, // Adjusted divider height
-              color: Colors.transparent,
-            ),
+            const Divider(height: 60, color: Colors.transparent),
             KeyedSubtree(key: sectionKeys[2], child: const Projects()),
-            const Divider(
-              height: 60, // Adjusted divider height
-              color: Colors.transparent,
-            ),
+            const Divider(height: 60, color: Colors.transparent),
             KeyedSubtree(key: sectionKeys[3], child: const Contacts()),
-            const Divider(
-              height: 60, // Adjusted divider height
-              color: Colors.transparent,
-            ),
+            const Divider(height: 60, color: Colors.transparent),
             KeyedSubtree(key: sectionKeys[4], child: const Footer()),
           ],
         ),

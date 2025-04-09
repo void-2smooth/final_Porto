@@ -10,21 +10,20 @@ class Projects extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-
-        SizedBox(height: 55,),
+        SizedBox(height: 55),
         Text(
           "Projects",
           style: GoogleFonts.openSans(
             fontSize: 75,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
         Container(
           height: 5,
           width: 150,
           decoration: BoxDecoration(
-            color: Colors.blueAccent,
+            color: Theme.of(context).cardColor,
             borderRadius: BorderRadius.circular(25),
           ),
         ),
@@ -34,7 +33,8 @@ class Projects extends StatelessWidget {
           link: "https://github.com/void-2smooth/VOID-NOTESAPP",
           isComplete: false,
           image1: 'assets/images/screenshots/Screenshot 2025-03-26 112214.png',
-          image2: 'assets/images/screenshots/Screenshot 2025-03-26 112237.png', destonation: 'Github',
+          image2: 'assets/images/screenshots/Screenshot 2025-03-26 112237.png',
+          destonation: 'Github',
         ),
       ],
     );
