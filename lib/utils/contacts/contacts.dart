@@ -45,7 +45,7 @@ class ContactsState extends State<Contacts>
   // Function to copy email to clipboard
   Future<void> copyEmail() async {
     final Uri uri = Uri.parse(
-      'mailto:smith@example.org?subject=News&body=New%20plugin',
+      'mailto:jamessvv2005@gmail.com?subject=Website%20Query',
     ); // Ensure the URL is in Uri format
     if (await canLaunchUrl(uri)) {
       await launchUrl(
