@@ -92,6 +92,9 @@ class ContactsState extends State<Contacts>
                     openInNewTab(
                       'https://www.linkedin.com/in/james-coetzee-03b88b328/',
                     );
+                    openInNewTab(
+                      'https://www.linkedin.com/in/james-coetzee-03b88b328/',
+                    );
                   },
                 ),
                 const SizedBox(width: 20),
