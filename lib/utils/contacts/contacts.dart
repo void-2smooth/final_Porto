@@ -55,10 +55,6 @@ class ContactsState extends State<Contacts>
     } else {
       throw 'Could not open the URL $uri';
     }
-    // Clipboard.setData(ClipboardData(text: 'jamessvv2005@gmail.com'));
-    // ScaffoldMessenger.of(context).showSnackBar(
-    //   const SnackBar(content: Text('Email copied to clipboard!')),
-    // );
   }
 
   @override
