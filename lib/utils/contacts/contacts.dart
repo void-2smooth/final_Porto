@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portifolio/utils/buttons/custom_button.dart';
-import 'package:flutter/services.dart'; // <-- Add this import for Clipboard
 import 'package:url_launcher/url_launcher.dart'; // <-- Add this import
 
 class Contacts extends StatefulWidget {
@@ -11,7 +10,8 @@ class Contacts extends StatefulWidget {
   ContactsState createState() => ContactsState();
 }
 
-class ContactsState extends State<Contacts> with SingleTickerProviderStateMixin {
+class ContactsState extends State<Contacts>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -33,18 +33,28 @@ class ContactsState extends State<Contacts> with SingleTickerProviderStateMixin 
   Future<void> openInNewTab(String url) async {
     final Uri uri = Uri.parse(url); // Ensure the URL is in Uri format
     if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication); // Opens in a new tab or browser window
+      await launchUrl(
+        uri,
+        mode: LaunchMode.externalApplication,
+      ); // Opens in a new tab or browser window
     } else {
       throw 'Could not open the URL $url';
     }
   }
 
   // Function to copy email to clipboard
-  void copyEmail() {
-    Clipboard.setData(ClipboardData(text: 'jamessvv2005@gmail.com'));
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Email copied to clipboard!')),
-    );
+  Future<void> copyEmail() async {
+    final Uri uri = Uri.parse(
+      'mailto:jamessvv2005@gmail.com?subject=Website%20Query',
+    ); // Ensure the URL is in Uri format
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(
+        uri,
+        mode: LaunchMode.externalApplication,
+      ); // Opens in a new tab or browser window
+    } else {
+      throw 'Could not open the URL $uri';
+    }
   }
 
   @override
@@ -55,7 +65,8 @@ class ContactsState extends State<Contacts> with SingleTickerProviderStateMixin 
     return Center(
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: screenWidth < 600 ? 20 : 80, // Less padding on smaller screens
+          horizontal:
+              screenWidth < 600 ? 20 : 80, // Less padding on smaller screens
           vertical: 50,
         ),
         child: Column(
@@ -66,7 +77,10 @@ class ContactsState extends State<Contacts> with SingleTickerProviderStateMixin 
             Text(
               "Connect with Me",
               style: GoogleFonts.heebo(
-                fontSize: screenWidth < 600 ? 36 : 48, // Adjust font size based on screen width
+                fontSize:
+                    screenWidth < 600
+                        ? 36
+                        : 48, // Adjust font size based on screen width
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
@@ -80,7 +94,10 @@ class ContactsState extends State<Contacts> with SingleTickerProviderStateMixin 
               "build something amazing together!",
               textAlign: TextAlign.center,
               style: GoogleFonts.openSans(
-                fontSize: screenWidth < 600 ? 14 : 18, // Adjust font size for smaller screens
+                fontSize:
+                    screenWidth < 600
+                        ? 14
+                        : 18, // Adjust font size for smaller screens
                 height: 1.6,
                 color: Colors.black87,
               ),
@@ -95,7 +112,9 @@ class ContactsState extends State<Contacts> with SingleTickerProviderStateMixin 
                   name: "LinkedIn",
                   icon: Icons.link,
                   onPressed: () {
-                    openInNewTab('https://www.linkedin.com/in/james-coetzee-03b88b328/');
+                    openInNewTab(
+                      'https://www.linkedin.com/in/james-coetzee-03b88b328/',
+                    );
                   },
                 ),
                 const SizedBox(width: 20),
@@ -116,7 +135,10 @@ class ContactsState extends State<Contacts> with SingleTickerProviderStateMixin 
               child: Text(
                 'Email: jamessvv2005@gmail.com',
                 style: GoogleFonts.openSans(
-                  fontSize: screenWidth < 600 ? 14 : 18, // Adjust font size for mobile
+                  fontSize:
+                      screenWidth < 600
+                          ? 14
+                          : 18, // Adjust font size for mobile
                   color: Colors.blue,
                   decoration: TextDecoration.underline,
                 ),
